@@ -1,0 +1,593 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: url('https://i.ibb.co/Y7CcMgJ/app-bg.jpg') no-repeat center center fixed; /* Background image of jungle */
+  background-size: cover;
+}
+
+.chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #4caf50; /* Green button for the chatbot toggler */
+  transition: all 0.2s ease;
+}
+
+body.show-chatbot .chatbot-toggler {
+  transform: rotate(90deg);
+}
+
+.chatbot-toggler span {
+  color: #fff;
+  position: absolute;
+}
+
+.chatbot-toggler span:last-child,
+body.show-chatbot .chatbot-toggler span:first-child  {
+  opacity: 0;
+}
+
+body.show-chatbot .chatbot-toggler span:last-child {
+  opacity: 1;
+}
+
+.chatbot {
+  position: fixed;
+  right: 35px;
+  bottom: 90px;
+  width: 420px;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for the chatbot */
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+  transform-origin: bottom right;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 32px 64px -48px rgba(0,0,0,0.5);
+  transition: all 0.1s ease;
+}
+
+body.show-chatbot .chatbot {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.chatbot header {
+  padding: 16px 0;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  background: #388e3c; /* Dark green header for the chatbot */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.chatbot header span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  display: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+header h2 {
+  font-size: 1.4rem;
+}
+
+.chatbot .chatbox {
+  overflow-y: auto;
+  height: 510px;
+  padding: 30px 20px 100px;
+}
+
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 25px;
+}
+
+.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 25px;
+}
+
+.chatbox .chat {
+  display: flex;
+  list-style: none;
+}
+
+.chatbox .outgoing {
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+
+.chatbox .incoming span {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  cursor: default;
+  text-align: center;
+  line-height: 32px;
+  align-self: flex-end;
+  background: #388e3c; /* Dark green sender bubble for incoming messages */
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
+
+.chatbox .chat p {
+  white-space: pre-wrap;
+  padding: 12px 16px;
+  border-radius: 10px 10px 0 10px;
+  max-width: 75%;
+  color: #fff;
+  font-size: 0.95rem;
+  background: #388e3c; /* Dark green bubble for outgoing messages */
+}
+
+.chatbox .incoming p {
+  border-radius: 10px 10px 10px 0;
+}
+
+.chatbox .chat p.error {
+  color: #c62828; /* Red color for error messages */
+  background: #ffcdd2; /* Light red background for error messages */
+}
+
+.chatbox .incoming p {
+  color: #000;
+  background: #f5f5f5; /* Light gray background for incoming messages */
+}
+
+.chatbot .chat-input {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  padding: 3px 20px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input textarea {
+  height: 55px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  max-height: 180px;
+  padding: 15px 15px 15px 0;
+  font-size: 0.95rem;
+}
+
+.chat-input span {
+  align-self: flex-end;
+  color: #4caf50; /* Green color for send button */
+  cursor: pointer;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  font-size: 1.35rem;
+}
+
+.chat-input textarea:valid ~ span {
+  visibility: visible;
+}
+
+/* Make the monkey icon larger and circular */
+.monkey-icon {
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Adjust the size as needed */
+  border-radius: 50%; /* Make it circular */
+}
+
+/* Replace the incoming chatbot icon with a squirrel image */
+.squirrel-icon {
+  width: 32px; /* Adjust the size as needed */
+  height: 32px; /* Adjust the size as needed */
+  border-radius: 50%; /* Make it circular */
+}
+
+@media (max-width: 490px) {
+  .chatbot-toggler {
+    right: 20px;
+    bottom: 20px;
+  }
+  .chatbot {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0;
+    width: 100%;
+  }
+  .chatbot .chatbox {
+    height: 90%;
+    padding: 25px 15px 100px;
+  }
+  .chatbot .chat-input {
+    padding: 5px 15px;
+  }
+  .chatbot header span {
+    display: block;
+  }
+}
+
+/* Styling for the "MISTER M" text */
+.monkey-text {
+  position: absolute;
+  top: -50px; /* Adjust the distance from the image */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white; /* Blue color for the text */
+  font-size: 2.0rem; /* Adjust font size as needed */
+}
+.jungle {
+  display: flex;
+  flex-wrap: wrap; /* Allows the cards to wrap to the next line if there isn't enough space */
+  justify-content: center; /* Centers the cards horizontally */
+}
+.card {
+  margin: 15px;
+  width: 100px; /* Adjusted to fit the blue box */
+  height: 100px; /* Adjusted to fit the blue box */
+  background: rgb(244, 224, 3);
+  transition: all 0.4s;
+  border-radius: 10px; /* Adjusted for smaller card */
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5); /* Adjusted shadow */
+  font-size: 6px; /* Adjusted font size */
+  font-weight: 90;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.1); /* Adjusted scale */
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5); /* Adjusted shadow */
+  background: rgb(255, 157, 0);
+}
+
+.first-content,
+.first-content1,
+.first-content2 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  border-radius: 5px; /* Adjusted for smaller card */
+  position: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.first-content {
+  background-image: url("https://img.freepik.com/premium-photo/image-group-cute-dogs-sitting_944128-3666.jpg");
+}
+
+.first-content1 {
+  background-image: url("https://www.shutterstock.com/image-vector/cats-wall-sticker-graphic-colored-260nw-1364442137.jpg");
+}
+
+.first-content2 {
+  background-image: url("https://img.freepik.com/free-vector/scene-with-many-pandas-open-zoo_1308-38599.jpg");
+  background-size: contain;
+}
+
+.card:hover .first-content,
+.card:hover .first-content1,
+.card:hover .first-content2 {
+  height: 0px;
+  opacity: 0;
+}
+
+.second-content,
+.second-content1,
+.second-content2 {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  transition: all 0.4s;
+  font-size: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card:hover .second-content,
+.card:hover .second-content1,
+.card:hover .second-content2 {
+  opacity: 1;
+  font-size: 0.8rem; /* Adjusted font size */
+}
+
+.second-content {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.second-content1 {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
+.second-content2 {
+  background: rgba(100, 100, 100, 0.5);
+  color: yellow;
+}
+
+.music-container {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+  display: flex;
+  padding: 20px 30px;
+  position: fixed; /* Position fixed to move it to the left side */
+  left: 35px; /* Adjust as necessary to position it correctly */
+  bottom: 90px; /* Adjust as necessary to position it correctly */
+  z-index: 10;
+}
+
+.img-container {
+  position: relative;
+  width: 110px;
+}
+
+.img-container::after {
+  content: '';
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, 50%);
+}
+
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 110px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background-color: #fff;
+  border: 0;
+  color: #dfdbdf;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.action-btn.action-btn-big {
+  color: #cdc2d0;
+  font-size: 30px;
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #fe8daa;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+@media (max-width: 490px) {
+  .music-container {
+    left: 20px; /* Adjust positioning for smaller screens */
+    bottom: 20px; /* Adjust positioning for smaller screens */
+  }
+}
+
+
+/* -------------- */
+.chatbot-toggler {
+  right: calc(35px ); /* Move the icon 5cm from the right side of the screen */
+  bottom: calc(30px ); /* Adjust vertical position */
+  position: fixed;
+}
+.monkey-container {
+  position: relative;
+}
+.monkey-text {
+  position: absolute;
+  bottom: -20px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px; /* Adjust font size as needed */
+  color: white; /* Adjust color as needed */
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px; /* Adding some space between chatbot and cards */
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 30%;
+  margin: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+.first-content, .first-content1, .first-content2 {
+  height: 150px;
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.second-content {
+  text-align: center;
+}
+.second-content h1 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+.second-content p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+.second-content h3 {
+  font-size: 1.2em;
+  color: #e74c3c;
+  margin: 10px 0;
+}
+.second-content a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.second-content a:hover {
+  background-color: #2980b9;
+}
+/* Music Player Styles */
+.music-container {
+  background: #f4f4f4;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  width: 350px;
+  margin: 20px auto;
+  padding: 20px;
+}
+.music-info {
+  margin-bottom: 20px;
+}
+.progress-container {
+  background: #d3d3d3;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 4px;
+  width: 100%;
+}
+.progress {
+  background: #3498db;
+  border-radius: 10px;
+  height: 100%;
+  width: 0%;
+}
+.img-container img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+.navigation .action-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  font-size: 24px;
+  margin: 0 10px;
+}
+.navigation .action-btn:hover {
+  color: #2980b9;
+}
+.navigation .action-btn-big {
+  font-size: 36px;
+}
