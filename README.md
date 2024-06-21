@@ -1,6 +1,5 @@
 <div align="center">
-  
-# GENZ
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FFFFFF&center=true&vCenter=true&random=false&width=486&height=96&lines=GENZ" alt="Typing SVG" /></a>  
 </div>
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
