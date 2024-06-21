@@ -3,6 +3,8 @@
 # GENZ
 </div>
 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <div align="center">
   
 # About Our Project 💻
@@ -14,6 +16,10 @@
 
 <div align="center">
  <h1>AI-Controlled Mental Health and Counselling App</h1>
+  <p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+</p>
+
 <section>
             <h2>Project Overview</h2>
             <p>This project aims to develop an AI-controlled mental health and counselling application to provide users with accessible mental health support. The application will leverage AI algorithms to offer personalized counselling sessions, mental health assessments, and self-help resources.</p>
@@ -41,8 +47,10 @@
             <h2>Energy Conversion Processes</h2>
             <p>Energy conversion processes within the app involve real-time data analysis, natural language processing for user interactions, and machine learning models for personalized recommendations.</p>
         </section>
-
-<!--div align="center">
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+</p>
+<div align="center">
   <h1>Problem Statement: Effects of Depression on Mental Well-being</h1>
 
 <ul>
@@ -53,7 +61,10 @@
   <li><strong>Interpersonal Challenges:</strong> Strained relationships due to mood changes and social withdrawal.</li>
   <li><strong>Emotional Numbness:</strong> Difficulty connecting with emotions.</li>
 </ul>
-</div-->
+</div>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
+</p>
 
 # Tech Stack 
 <img src="https://forthebadge.com/images/badges/made-with-html.png" alt="HTML5 logo">
