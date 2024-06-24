@@ -70,5 +70,12 @@
 <img src="https://forthebadge.com/images/badges/made-with-css.png" alt="CSS3 logo">
 <img src="https://forthebadge.com/images/badges/made-with-javascript.png" alt="JavaScript logo">
 <img src="https://forthebadge.com/images/badges/made-with-python.png" alt="Python logo"> 
-</div>
-<img src ="https://forthebadge.com/images/badges/makes-people-smile.png"/>
+</div
+
+<p>
+  <img src="https://forthebadge.com/images/badges/makes-people-smile.png" alt="Makes People Smile" style="vertical-align: middle; margin-right: 10px;" />
+  
+  <a href="https://drive.google.com/file/d/1ftq3_dLeU0BuzJVIotCIiJThiOU2kziX/view?usp=drivesdk" style="vertical-align: middle;">EXAMPLE VIDEO</a>
+</p>
+
+
