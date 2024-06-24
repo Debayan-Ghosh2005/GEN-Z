@@ -75,7 +75,13 @@
 <p>
   <img src="https://forthebadge.com/images/badges/makes-people-smile.png" alt="Makes People Smile" style="vertical-align: middle; margin-right: 10px;" />
   
-  <a href="https://drive.google.com/file/d/1ftq3_dLeU0BuzJVIotCIiJThiOU2kziX/view?usp=drivesdk" style="vertical-align: middle;">EXAMPLE VIDEO</a>
+  <a href="https://drive.google.com/file/d/1ftq3_dLeU0BuzJVIotCIiJThiOU2kziX/view?usp=drivesdk" style="vertical-align: middle;">EXAMPLE VIDEO</a> 
+
+  <a href="https://drive.google.com/file/d/1lVvcIzTEvq_HvmAD2owCfJu3n1D4j-YV/view?usp=drive_link" style="vertical-align: middle;">PROJECT PROPOSAL</a>
+  
+  <a href="https://drive.google.com/file/d/1rgOCKzjb4W9lVhhMYUBe2tLMAEmSuTuL/view?usp=drive_link" style="vertical-align: middle;">PROJECT EXAMPLE</a>
+  
+  <a href="https://app.presentations.ai/view/mz2HVm" style="vertical-align: middle;">EXAMPLE VIDEO</a>
 </p>
 
 
