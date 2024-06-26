@@ -1,7 +1,7 @@
 import google.generativeai as genai
 import eel
 
-api_key1 = "****************************"
+api_key1 = "AIzaSyCjFhvLS3FG2JfFOyl1WqIBmH8qstbM_zA"
 genai.configure(api_key = api_key1)
 
 @eel.expose
